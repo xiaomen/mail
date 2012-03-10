@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{%block content %}
+<form action="/mailbox/mail" method="post">
+    <ul>
+        <li>
+            <label for="to_uid">收件人:</label><br/>
+            <input type="text" size="20" tabindex='1' value="" id="to_uid" name="to_uid">
+        </li>
+        <li>
+            <label for="title">标题:</label><br/>
+            <input type="text" size="20" tabindex='2' value="" id="title" name="title">
+        </li>
+        <li>
+            <label for="content">内容:</label><br/>
+			<textarea name="content" cols="30" rows="5" tabindex='3'></textarea>
+        </li>
+        <li>
+            <button type="submit" tabindex='4'>发送</button>
+        </li>
+    </ul>
+</form>
+{% if error %}
+<span>{{ error }}</span>
+{% endif %}
+{% endblock %}

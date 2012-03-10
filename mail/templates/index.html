@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{%block nav %}
+    <li class="select"><a href="http://xiaomen.co">首页</a></li>
+    <li><a href="http://library.xiaomen.co">图书馆</a></li>
+    <li><a href="http://selfstudy.xiaomen.co/hnu">自习室</a></li>
+{% endblock %}
+
+{%block content %}
+    {% if not login %}
+    <div>
+        <form action="{{ login_url }}" method="post">
+            <ul>
+                <li>
+                    <label for="email">邮箱:</label>
+                    <input type="text" size="20" tabindex='1' value="" id="email" name="email">
+                </li>
+                <li>
+                    <label for="password">密码:</label>
+                    <input type="password" size="20" tabindex='2' value="" id="password" name="password">
+                </li>
+                <li>
+                    <button type="submit" tabindex='3'>登录</button>
+                    <a href="/weibo/login"><i class="icon weibo"></i></a>
+                    <a href="/douban/login"><i class="icon douban"></i></a>
+                    <a href="/renren/login"><i class="icon renren"></i></a>
+                    <a href="/qq/login"><i class="icon qq"></i></a>
+                </li>
+            </ul>
+        </form>
+    </div>
+    {% if login_info %}
+    <span>{{ login_info }}</span>
+    {% endif %}
+    {% else %}
+    <div>
+        <p><span>Welcome {{ user_name }}</span></p>
+        <p><span>E-mail {{ user_email }}</span></p>
+        <p><a href="/account/logout">登出</a></p>
+    </div>
+    {% endif %}
+{% endblock %}
