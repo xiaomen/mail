@@ -1,7 +1,6 @@
-#!/usr/bin/python
-# encoding: UTF-8
-# a dummy wsgi app
+#!/usr/bin/env python
+#
+# Copyright 2012 crackcell
+#
 
-def app(environ, start_response):
-    start_response('200 OK', [('Content-Type', 'text/plain')])
-    return ["hello, world!"]
+from mail import app
