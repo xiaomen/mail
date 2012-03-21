@@ -1,2 +1,4 @@
 venv
 permdir
+*.pyc
+dev.yaml
