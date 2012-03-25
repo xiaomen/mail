@@ -7,12 +7,8 @@
 from datetime import *
 
 from flaskext.sqlalchemy import SQLAlchemy
-from mail import app
-from mail.config import *
 
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
-db = SQLAlchemy(app)
-
+db = SQLAlchemy()
 def init_db(app):
     db.init_app(app)
     db.app = app
@@ -62,7 +58,7 @@ class Notification(db.Model):
     id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     uid = db.Column(db.Integer)
     unread = db.Column(db.Integer)
-    
+
     def __init__(self, uid, unread, *args, **kwargs):
         self.uid = uid
         self.unread = unread

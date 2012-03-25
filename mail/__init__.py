@@ -7,15 +7,20 @@
 from sheep.api.statics import static_files
 from sheep.api.sessions import SessionMiddleware, FilesystemSessionStore
 from flask import Flask, g
+from config import *
+from models import init_db
 
 app = Flask(__name__)
 app.debug = True
 app.jinja_env.filters['s_files'] = static_files
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
 
 app.wsgi_app = SessionMiddleware(app.wsgi_app, \
         FilesystemSessionStore(), \
         cookie_name="xid", cookie_path='/', \
         cookie_domain=".xiaomen.co")
+
+init_db(app)
 
 @app.before_request
 def before_request():

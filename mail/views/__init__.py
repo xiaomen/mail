@@ -16,7 +16,7 @@ def index():
 
 @app.route('/login')
 def login():
-    return redirect("http://xiaomen.co/?fr=mail.xiaomen.co")
+    return redirect("http://account.xiaomen.co/?fr=mail.xiaomen.co")
 
 @app.route('/recv')
 def recv():
