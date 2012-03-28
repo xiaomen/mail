@@ -7,5 +7,5 @@
 DEBUG = True
 SECRET_KEY = 'sheep!@mailboxwWRFDS@$'
 
-#DATABASE_URI = 'mysql://'
-DATABASE_URI = 'mysql://root:Pa$$w0rd@localhost:3306/mail'
+DATABASE_URI = 'mysql://'
+#DATABASE_URI = 'mysql://root:Pa$$w0rd@localhost:3306/mail'
